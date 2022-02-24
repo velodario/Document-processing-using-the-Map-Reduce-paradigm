@@ -1,0 +1,15 @@
+VELO DARIO, 331CA
+Rezolvarea temei este separata in 2 taskuri, map si reduce.
+Dupa ce am initialat nr de workeri cu executer service am mai folosit callable si future din lab 7
+pentru usurinta de output.
+Clasa Map efectiv primeste ca argumente numele fisierului de procesare si offset inital = 0.
+octetii cresc pentru a forma cuvantul atata timp cat caracterul este DOAR litera sau numar.
+Rezultatul cu cuvintele respective pentru fiecare worker este salvat intr-un array unde
+este gasit lungimea cuvintelor si nr aparitii IN ACEST FISIER pentru ca acesta este ceea ce ne intereseaza.
+Daca cuvantul a mai existat incrementam nr ap, altfel nr ap = 1.
+Rezultatul final din Map este un Hashtable cu key numele fisierului si value un alt hashtable cu key
+lungimea cuvantului si value nr ap.
+Clasa Reduce primeste acest Hashtable mare ca input. Parcurgeam fiecare cuvant din hashtable mic si
+gasim lungimea maxima pentru fiecare fisier/hashtable. Il salvam intr-un hashmap cu key numele fisierului.
+Ne mai ramane sa gasim rangul si sa sortam descrescator fisierele dupa nr de rang.
+Rezultatul final este o Lista de liste cu numele fisierului,rangul,lungimea max, nr ap.
